@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Register</h1>
-<form action="userAction_register.action" method="post">
+<form action="userRegister.action" method="post">
     用户名：<input type="text" name="username"/>
     密　码：<input type="password" name="password"/>
     <input type="submit" value="Submit"/>

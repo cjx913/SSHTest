@@ -10,4 +10,5 @@ public interface UserDao {
     public void deleteUser(User user);
     public User findUserById(Integer id);
     public List<User> findAllUser();
+    public User findUserByNameAndPassword(User user);
 }

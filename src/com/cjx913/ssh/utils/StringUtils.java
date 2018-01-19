@@ -7,7 +7,7 @@ public class StringUtils {
 	/**
 	 * MD5加密
 	 */
-	private static String getMD5Value(String value){
+	public static String getMD5Value(String value){
 		try {
 			//1 获得消息摘要对象
 			MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -23,7 +23,7 @@ public class StringUtils {
 	/**
 	 * 获得32长度UUID值
 	 */
-	private static String getUUID(){
+	public static String getUUID(){
 		return UUID.randomUUID().toString().replace("-", "");
 	}
 }

@@ -2,6 +2,7 @@ package com.cjx913.ssh.action;
 
 import com.cjx913.ssh.entity.User;
 import com.cjx913.ssh.service.UserService;
+import com.cjx913.ssh.utils.StringUtils;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -23,15 +24,19 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 
 
     public String login(){
-        String username = user.getUsername();
-        String password = user.getPassword();
-        if(username.equals("cjx913")&&password.equals("123456")){
-            return "login";
+       user.setPassword(StringUtils.getMD5Value(user.getPassword()));
+       user = userService.findUserByNameAndPassword(user);
+        if(user==null){
+            return ERROR;
         }
-        return ERROR;
+        return "login";
     }
 
     public String register(){
+        User user = new User();
+        user.setUsername(this.user.getUsername());
+       user.setPassword(StringUtils.getMD5Value(this.user.getPassword()));
+        userService.saveUser(user);
         return "register";
     }
 }

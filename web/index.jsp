@@ -16,6 +16,6 @@
 <body>
 <s:a href="/pages/login.jsp">Login</s:a>
 <br/>
-<s:a action="userRegister">Register</s:a>
+<s:a href="/pages/register.jsp">Register</s:a>
 </body>
 </html>
